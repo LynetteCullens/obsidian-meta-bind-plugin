@@ -24,3 +24,17 @@ INPUT[progressBar(showcase, minValue(0), maxValue(10), stepSize(0.1)):progress4]
 ```meta-bind
 INPUT[progressBar(defaultValue(53), class(red))]
 ```
+
+```meta-bind-js-view
+{Progress} as progress
+{progress1} as progress1
+{progress4} as progress4
+---
+const progress1 = context.bound.progress1;
+const progress4 = context.bound.progress4;
+const progress = `\`\`\`meta-bind
+INPUT[progressBar(defaultValue(1), minValue(${progress1}), maxValue(${progress4}), class(red))]
+\`\`\``;
+
+return engine.markdown.create(progress);
+```
